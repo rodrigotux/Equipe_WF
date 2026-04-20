@@ -188,10 +188,10 @@
         style="display:none;"
     >
 
-    <button type="button" class="btn" onclick="abrirCamera()">
-        📷 Tirar Fotos
-    </button>
-
+    <button type="button" class="btn" id="btnCamera" onclick="abrirCamera()">
+    📷 Tirar Fotos
+</button>
+    
     <div id="previewFotos" style="
         display:grid;
         grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
@@ -200,7 +200,9 @@
     "></div>
 </div>
         <!-- Botão de Envio -->
-        <button class="btn">Enviar Checklist</button>
+       <button type="button" class="btn" id="btnEnviar">
+    Enviar Checklist
+</button>
     </div>
 </body>
 <script>
@@ -247,7 +249,7 @@ async function uploadFoto(file) {
     }
 }
 
-document.querySelector('.btn:last-of-type').addEventListener('click', async () => {
+document.getElementById('btnEnviar').addEventListener('click', async () => {
 
     const statusVeiculo = Array.from(
         document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked')
